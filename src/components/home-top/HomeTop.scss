@@ -1,0 +1,33 @@
+.home-top{
+    .home-top-wrapper{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .home-wrapper-details{
+            width: 500px;
+            padding: 50px;
+            .additional-title{
+                font-size: 18px;
+                color: #222;
+                font-weight: 500;
+                margin-bottom: 5px;
+            }
+            .title{
+                font-size: 32px;
+                font-weight: 500;
+                color: #222;
+            }
+            .desc{
+                font-size: 16px;
+                color: #4d4d4d;
+                margin: 15px 0;
+            }
+        }
+        .home-top-img{
+            width: 65%;
+            img{
+                width: 100%;
+            }
+        }
+    }
+}

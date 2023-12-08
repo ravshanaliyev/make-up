@@ -11,6 +11,23 @@ import {
 
 import "./Utils.scss";
 
+const Loading = ({ type }) => {
+    return (
+        <>
+            {
+                type === "small" ?
+                    <span className="loader"></span>
+                    :
+                    <div className="loading-spinner">
+                        <div className="wrap">
+                            <span className="glyphicon glyphicon-cog"></span>
+                            <span className="glyphicon glyphicon-cog"></span>
+                        </div>
+                    </div>
+            }
+        </>
+    );
+};
 
 const Container = ({ children }) => {
     return <div className="container">{children}</div>;
@@ -95,5 +112,13 @@ const Card = ({ id, image, title, description, desc, price, product }) => {
         </div>
     );
 };
+const Button = ({ loading, text, action, disabled, icon, click, type }) => {
+    return (
+        <button data-action={action}  disabled={disabled} type={type ? type : "button"} onClick={click} className={"button"}>
+            {!loading ? <>{icon} {text}</> : <Loading type="small" />}
+        </button>
+    );
+};
 
-export  {Card, Container};
+
+export  {Card, Container, Button, Loading};

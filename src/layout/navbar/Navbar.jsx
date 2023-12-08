@@ -12,7 +12,7 @@ const Navbar = () => {
             <Container>
                 <div className="nav__wrapper">
                     <div className="nav__logo">
-                        <img src={NavLogo} alt="logo" />
+                        <Link to={"/"}><img src={NavLogo} alt="logo" /></Link>
                     </div>
                     <ul className='nav__links'>
                         <li className='nav-link-items'>Shop Skincare</li>
