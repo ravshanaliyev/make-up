@@ -1,0 +1,30 @@
+.cards{
+  display: grid;
+  grid-template-columns: repeat(4, 270px);
+  gap: 50px;
+}
+ 
+.cart__wrapper{
+  padding-top: 63px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: -50px;
+  p{
+    padding-top: 58px;
+    padding-bottom: 18px;
+    color: var(--dark-font-color);
+    font-family: var(--dmsans);
+    font-size: 20px;
+    font-weight: 400;
+  }
+}
+
+.addtocart-wrapper{
+  display: flex;
+  justify-content: space-between;
+  padding-top: 40px;
+  gap: 80px;
+  align-items: self-start;
+}

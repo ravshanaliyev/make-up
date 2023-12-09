@@ -3,7 +3,7 @@ const truncate = (str, wordcount) => {
 };
 
 const formatmoney = (number) => {
-  return number.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,");
+  return Number(number).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,");
 };
 
 const formatdate = (date) => {

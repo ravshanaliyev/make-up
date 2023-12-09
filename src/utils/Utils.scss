@@ -57,10 +57,10 @@
     }
 }
 .card {
+    width: 300px;
     border-radius: 5px;
     padding: 16px 24px;
-    border-radius: var(--main-border-radius);
-    box-shadow: var(--main-card-shadow);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     display: flex;
     flex-direction: column;
     text-align: left;
@@ -74,19 +74,20 @@
         }
     }
     .card__title {
-        color: var(--secondary-dark-font-color);
+                color: #000;
         font-family: var(--dmsans);
-        font-size: 24px;
+        font-size: 18px;
         font-weight: 400;
     }
     .card__price {
-        color: #000;
+        color: #444;
         font-family: var(--dmsans);
-        font-weight: 700;
+        font-weight: 600;
         margin-bottom: 10px;
     }
     .card__text {
-        font-size: 16px;
+        font-size: 14px;
+        color: #4d4d4d;
         margin: 10px 0;
         word-break: break-all;
     }
@@ -95,19 +96,18 @@
 .card__top-icons {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content:flex-end;
     list-style: none;
     cursor: pointer;
-
     .icon__heart:hover {
         cursor: pointer;
     }
     .icon__heart--fill {
-        color: var(--danger-color);
+        color: red;
     }
     svg {
         font-size: 24px;
-        color: var(--primary-font-color);
+        color: #937ab6;
     }
 }
 .button_wrapper{
@@ -120,7 +120,7 @@
     text-align: center;
   }
 }
-.button{
+.button{  
     font-size: 16px;
     padding: 15px 30px;
     display: flex;
@@ -135,5 +135,22 @@
     &:hover{
         background-color: #fff;
         color: #222;
+    }
+}
+.btn{
+    font-size: 14px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.2s;
+    border: 1px solid #222;
+    transition: .4s;
+    background-color: #fff;
+    color: #222;
+    &:hover{
+        background-color: #222;
+        color: #fff;
     }
 }

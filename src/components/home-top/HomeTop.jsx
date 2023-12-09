@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './HomeTop.scss'
-import Banner  from '../../assets/images/Homepage.webp'
+import Banner from '../../assets/images/Homepage.webp'
 import { Button } from '../../utils/Utils'
 import { Link } from 'react-router-dom'
-
+import { connect } from 'react-redux'
+import { loadProducts } from '../../redux/actions/product-actions'
+import CategoryItems from '../categoryItems/CategoryItems'
 const HomeTop = () => {
   return (
     <div className='home-top'>
+      <CategoryItems />
       <div className="home-top-wrapper">
         <div className="home-wrapper-details">
           <h3 className="additional-title">
@@ -28,4 +31,4 @@ const HomeTop = () => {
   )
 }
 
-export default HomeTop
+export default connect(null, { loadProducts })(HomeTop)

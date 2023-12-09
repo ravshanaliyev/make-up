@@ -21,7 +21,7 @@ const cartReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TO_CART:
       product_index = state.cart_products.findIndex(
-        (product) => product._id === action.product._id
+        (product) => product.id === action.product.id
       );
       let newcart = state.cart_products;
       if (product_index === -1) {
@@ -33,7 +33,7 @@ const cartReducer = (state = initialState, action) => {
     case INCREMENT_COUNT:
     case DECREMENT_COUNT:
       product_index = state.cart_products.findIndex(
-        (product) => product._id === action.product._id
+        (product) => product.id === action.product.id
       );
       let addedcart = state.cart_products.map((product, index) => {
         if (index === product_index) {
@@ -50,7 +50,7 @@ const cartReducer = (state = initialState, action) => {
       };
     case REMOVE_FROM_CART:
       product_index = state.cart_products.findIndex(
-        (product) => product._id === action.product._id
+        (product) => product.id === action.product.id
       );
       let removeditem = state.cart_products.filter(
         (_, index) => index !== product_index

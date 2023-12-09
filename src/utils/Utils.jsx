@@ -10,6 +10,7 @@ import {
 } from "../redux/actions/action-types";
 
 import "./Utils.scss";
+import { Link } from "react-router-dom";
 
 const Loading = ({ type }) => {
     return (
@@ -63,7 +64,7 @@ const Card = ({ id, image, title, description, desc, price, product }) => {
     return (
         <div className="card">
             <ul className="card__top-icons">
-                {like_products.findIndex((likeproduct) => likeproduct._id === id) !==
+                {like_products.findIndex((likeproduct) => likeproduct.id === id) !==
                     -1 ? (
                     <AiFillHeart
                         className="icon__heart--fill"
@@ -76,16 +77,18 @@ const Card = ({ id, image, title, description, desc, price, product }) => {
                     />
                 )}
             </ul>
-            <div className="card__image-wrapper">
-                <img src={image} alt="" />
-            </div>
-            <h2 className="card__title">{title}</h2>
+            <Link to={`/product/${id}`}>
+                <div className="card__image-wrapper">
+                    <img src={image ? image : "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/310px-Placeholder_view_vector.svg.png"} alt="" />
+                </div>
+            </Link>
+            <h2 className="card__title">{truncate(title, 23)}</h2>
             <p title={desc} className="card__text">
-                {truncate(description, 25)}
+                {truncate(description, 40)}
             </p>
-            <strong className="card__price">$ {formatmoney(price)}</strong>
+            <p className="card__price">${formatmoney(price)}</p>
 
-            {cart_products.findIndex((cardproduct) => cardproduct._id === id) !==
+            {cart_products.findIndex((cardproduct) => cardproduct.id === id) !==
                 -1 ? (
                 <div className="button_wrapper">
                     <button
@@ -95,7 +98,7 @@ const Card = ({ id, image, title, description, desc, price, product }) => {
                         -
                     </button>
                     <strong>
-                        {cart_products.find((cartproduct) => cartproduct._id === id).count}
+                        {cart_products.find((cartproduct) => cartproduct.id === id).count}
                     </strong>
                     <button
                         className="btn"
@@ -106,7 +109,7 @@ const Card = ({ id, image, title, description, desc, price, product }) => {
                 </div>
             ) : (
                 <button onClick={() => handleAddToCart(product)} className="btn">
-                    Sotib olish
+                    ADD TO CART
                 </button>
             )}
         </div>
