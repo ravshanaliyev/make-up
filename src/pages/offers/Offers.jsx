@@ -28,16 +28,6 @@ const Offers = () => {
                   price={product.price}
                   product={product}
                 />
-                <Card
-                  key={product.id}
-                  id={product.id}
-                  image={product.image_link}
-                  title={product.name}
-                  description={product.description.length > 30 ? product.description.slice(0, 30) + "..." : product.description}
-                  desc={product.description}
-                  price={product.price}
-                  product={product}
-                />
               </>
               
             );
