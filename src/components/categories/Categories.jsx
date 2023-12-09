@@ -8,7 +8,7 @@ const Categories = () => {
   const { category } = useParams()
   const data = useSelector(state => state.product_data.products);
   useEffect(() => {
-    loadProducts(`?product_category=${category}`)
+    loadProducts(`products.json?product_category=${category}`)
   }, [loadProducts, data, category])
   return (
     <div>

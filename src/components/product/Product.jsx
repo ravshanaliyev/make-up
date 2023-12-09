@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Card, Container } from '../../utils/Utils';
 import { connect, useSelector } from 'react-redux';
-import Skeleton from 'react-loading-skeleton'
-import 'react-loading-skeleton/dist/skeleton.css'
 import { loadProducts } from '../../redux/actions/product-actions'
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -14,13 +12,11 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import './Product.scss'
-import { Link } from 'react-router-dom';
 
 const Product = ({ loadProducts }) => {
-    const [loading, setLoading] = useState(false);
     const data = useSelector(state => state.product_data.products);
     useEffect(() => {
-        loadProducts("?product_category=concealer&product_type=foundation")
+        loadProducts("products.json?product_category=concealer")
     }, [loadProducts])
     return (
         <div className="products__wrapper">
@@ -34,9 +30,7 @@ const Product = ({ loadProducts }) => {
                     className="mySwiper"
                 >
                     <div className="cards__wrapper">
-                        {loading ? (
-                            <Skeleton amount={8} />
-                        ) : (
+                        {Array.isArray(data) ? 
                             data.map((product) => {
                                 return (
                                     <SwiperSlide className="card-slide" key={product.id}>
@@ -52,8 +46,8 @@ const Product = ({ loadProducts }) => {
                                             />
                                     </SwiperSlide>
                                 );
-                            })
-                        )}
+                            }) : null
+                        }
                     </div>
                 </Swiper>
             </Container>

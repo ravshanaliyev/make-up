@@ -6,7 +6,7 @@ import { Card } from '../../utils/Utils';
 const Offers = () => {
   const data = useSelector(state => state.product_data.products);
   useEffect(() => {
-    loadProducts(`?product_category=palette`)
+    loadProducts(`products.json?product_category=palette`)
   }, [loadProducts])
   return (
     <div>
