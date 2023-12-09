@@ -9,7 +9,7 @@ const likedReducer = (state = initialState, action) => {
   switch (action.type) {
     case LIKE_PRODUCT:
       product_index = state.liked_products.findIndex(
-        (product) => product.id === action.product.id
+        product => product.id === action.product.id
       );
       let newliked = state.liked_products;
       if (product_index === -1) {

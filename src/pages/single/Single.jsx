@@ -114,7 +114,7 @@ const Single = ({loadProducts}) => {
                 Array.isArray(data.product_colors) &&
                 data.product_colors.map((color, index) => {
                   return (
-                    <div key={index} onClick={() => setCurrentColorIndex(index)} className="color-type"  style={{backgroundColor: color.hex_value}}>
+                    <div key={index} onClick={() => setCurrentColorIndex(index)} className="color-type" style={{ backgroundColor: color.hex_value, border: currentColorIndex === index ? '2px solid #937ab6' : null}}>
                       
                     </div>
                     
@@ -122,7 +122,7 @@ const Single = ({loadProducts}) => {
                 } 
                 )
               }
-              <div className="color-type-result" style={{ backgroundColor: Array.isArray(data?.product_colors) && data?.product_colors[currentColorIndex]?.hex_value }}>
+              <div className="color-type-result"  style={ { backgroundColor: Array.isArray(data?.product_colors) && data?.product_colors[currentColorIndex]?.hex_value, }}>
 
               </div>
 

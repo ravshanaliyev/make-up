@@ -4,6 +4,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
 }
 
 ::-webkit-scrollbar {
@@ -18,9 +19,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 50px;
-    gap: 30px;
+    padding: 5px 50px;
+    // gap: 10px;
     border-bottom: 1px solid rgba(128, 128, 128, 0.361);
+    background-color: rgb(255, 255, 255);
     .category-name {
         .link {
             text-decoration: none;

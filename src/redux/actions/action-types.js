@@ -4,7 +4,3 @@ export const INCREMENT_COUNT = "INCREMENT_COUNT";
 export const DECREMENT_COUNT = "DECREMENT_COUNT";
 export const ADD_TO_CART = "ADD_TO_CART";
 export const REMOVE_FROM_CART = "REMOVE_FROM_CART";
-export const ADD_SALE = "ADD_SALE";
-export const REMOVE_SALE = "REMOVE_SALE";
-export const SALE_INCREMENT = "SALE_INCREMENT";
-export const SALE_DECREMENT = "SALE_DECREMENT";
