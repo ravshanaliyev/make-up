@@ -6,11 +6,15 @@ import NavLogo from '../../assets/images/alastin.avif'
 import './Navbar.scss'
 import { Link } from 'react-router-dom';
 import { useTranslation } from "react-i18next";
+import { useSelector, useDispatch } from 'react-redux';
 const Navbar = () => {
-
-    const {i18n} = useTranslation();
+    const dispatch = useDispatch()
+    const {i18n} = useTranslation()
+    const changed_language = useSelector(state => state.language.lang);
+    console.log(changed_language);
     const handlePriceChange = (e) => {
         i18n.changeLanguage(e.target.value);
+        dispatch({type: "CHANGE_LANGUAGE", lang: e.target.value})
     }
     return (
         <nav>
@@ -28,7 +32,7 @@ const Navbar = () => {
                     </ul>
                     <ul className='nav__icons'>
                         <li>
-                            <select style={{ border: "none" , outline: "none"}} defaultValue={localStorage.getItem("lang")} onChange={handlePriceChange}>
+                            <select style={{ border: "none" , outline: "none"}} defaultValue={changed_language} onChange={handlePriceChange}>
                                 <option value="$">USD</option>
                                 <option value="som">SOM</option>
                             </select>
