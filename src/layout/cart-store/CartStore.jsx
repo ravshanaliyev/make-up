@@ -6,7 +6,6 @@ import './CartStore.scss'
 const CartStore = () => {
   const data = useSelector(state => state.cart.cart_products)
 
-  console.log(data);
   return (
     <div>
       <Container>

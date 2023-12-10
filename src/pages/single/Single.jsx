@@ -21,7 +21,6 @@ const Single = ({loadProducts}) => {
   const dispatch = useDispatch();
   const like_products = useSelector((state) => state.liked.liked_products);
   const cart_products = useSelector((state) => state.cart.cart_products);
-  console.log(data);
   useEffect(() => {
     loadProducts(`products/${id}`)
   }, [loadProducts, id])

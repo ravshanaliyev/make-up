@@ -49,12 +49,10 @@ const Card = ({ id, image, title, description, desc, price, product }) => {
     };
 
     const handleIncrementProductCount = (product) => {
-        console.log(product);
         dispatch({ type: INCREMENT_COUNT, product });
     };
 
     const handleDecrementProductCount = (product) => {
-        console.log(product);
         dispatch({ type: DECREMENT_COUNT, product });
     };
 
@@ -65,7 +63,6 @@ const Card = ({ id, image, title, description, desc, price, product }) => {
     function handleDislikeProduct(product) {
         dispatch({ type: DISLIKE_PRODUCT, product });
     }
-    console.log(t("price.currency"));
 
     return (
         <div className="card">

@@ -1,15 +1,20 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 // import './Categories.scss'
 import { loadProducts } from '../../redux/actions/product-actions'
 import { connect, useSelector } from 'react-redux'
 import { Card } from '../../utils/Utils'
+import instance from '../../services/api'
 const Categories = () => {
+  const [products, setProducts] = useState([])
   const { category } = useParams()
-  const {products} = useSelector(state => state.product_data);
-  console.log(products);
+  // const {products} = useSelector(state => state.product_data);
+  // console.log(products);
   useEffect(() => {
-    loadProducts(`products.json?product_type=${category}`)
+    instance.get(`products.json?product_type=${category}`).then(res => {
+      setProducts(res.data);
+    })
+    // loadProducts(`products.json?product_type=${category}`)
   }, [])
   return (
     <div>

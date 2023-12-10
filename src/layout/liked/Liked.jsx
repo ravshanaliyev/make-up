@@ -6,7 +6,6 @@ import 'react-loading-skeleton/dist/skeleton.css'
 import './Liked.scss'
 const Liked = () => {
   const liked_products = useSelector(state => state.liked.liked_products)
-console.log(liked_products);
 
   return (
     <Container>
