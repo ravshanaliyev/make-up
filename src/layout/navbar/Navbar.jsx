@@ -1,12 +1,17 @@
 import React from 'react'
 import { Container } from '../../utils/Utils'
-import { IoSearchOutline } from "react-icons/io5";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import NavLogo from '../../assets/images/alastin.avif'
 import './Navbar.scss'
 import { Link } from 'react-router-dom';
+import { useTranslation } from "react-i18next";
 const Navbar = () => {
+
+    const {i18n} = useTranslation();
+    const handlePriceChange = (e) => {
+        i18n.changeLanguage(e.target.value);
+    }
     return (
         <nav>
             <Container>
@@ -22,7 +27,12 @@ const Navbar = () => {
                         <li className='nav-link-items'>About</li>
                     </ul>
                     <ul className='nav__icons'>
-                        <li><IoSearchOutline /></li>
+                        <li>
+                            <select style={{ border: "none" , outline: "none"}} defaultValue={localStorage.getItem("lang")} onChange={handlePriceChange}>
+                                <option value="$">USD</option>
+                                <option value="som">SOM</option>
+                            </select>
+                        </li>
                         <li><Link to={"/liked"}><IoMdHeartEmpty /></Link></li>
                         <li><Link to={"/cart"}><HiOutlineShoppingBag /></Link></li>
                     </ul>

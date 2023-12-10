@@ -14,8 +14,8 @@ const Offers = () => {
         <img style={{width: '100%'}} src={Offer} alt="" />
       </div>
       <div className="cards__wrapper">
-        {
-          data.map((product) => {
+        { Array.isArray(data) &&
+          data.slice(70, 100).map((product) => {
             return (
               <>
                 <Card

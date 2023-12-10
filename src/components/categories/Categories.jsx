@@ -6,16 +6,17 @@ import { connect, useSelector } from 'react-redux'
 import { Card } from '../../utils/Utils'
 const Categories = () => {
   const { category } = useParams()
-  const data = useSelector(state => state.product_data.products);
+  const {products} = useSelector(state => state.product_data);
+  console.log(products);
   useEffect(() => {
     loadProducts(`products.json?product_type=${category}`)
-  }, [loadProducts, data, category])
+  }, [])
   return (
     <div>
         <h2 style={{textAlign: 'center', margin: '30px 0', color: "#222", textTransform: 'uppercase'}}>{category} Products</h2>
       <div className="cards__wrapper">
-        {
-          data.map((product) => {
+        { Array.isArray(products) &&
+          products.splice(20, 40).map((product) => {
             return (
               <Card
                 key={product.id}

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import HomeTop from '../../components/home-top/HomeTop'
 import Product from '../../components/product/Product'
 import Science from '../../components/science/Science'

@@ -11,8 +11,12 @@ import {
 
 import "./Utils.scss";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+
+
 
 const Loading = ({ type }) => {
+    
     return (
         <>
             {
@@ -34,6 +38,7 @@ const Container = ({ children }) => {
     return <div className="container">{children}</div>;
 };
 const Card = ({ id, image, title, description, desc, price, product }) => {
+    const {t} = useTranslation()
     const dispatch = useDispatch();
     const like_products = useSelector((state) => state.liked.liked_products);
     const cart_products = useSelector((state) => state.cart.cart_products);
@@ -60,6 +65,7 @@ const Card = ({ id, image, title, description, desc, price, product }) => {
     function handleDislikeProduct(product) {
         dispatch({ type: DISLIKE_PRODUCT, product });
     }
+    console.log(t("price.currency"));
 
     return (
         <div className="card">
@@ -86,7 +92,7 @@ const Card = ({ id, image, title, description, desc, price, product }) => {
             <p title={desc} className="card__text">
                 {truncate(description, 40)}
             </p>
-            <p className="card__price">${formatmoney(price)}</p>
+            <p className="card__price">{t("price.currency") === "$" ? `$${price}` : `${price * 12322} som`}</p>
 
             {cart_products.findIndex((cardproduct) => cardproduct.id === id) !==
                 -1 ? (

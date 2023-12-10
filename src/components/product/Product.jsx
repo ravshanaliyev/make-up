@@ -16,7 +16,7 @@ import './Product.scss'
 const Product = ({ loadProducts }) => {
     const data = useSelector(state => state.product_data.products);
     useEffect(() => {
-        loadProducts("products.json?product_category=concealer")
+        loadProducts("products.json?product_type=foundation")
     }, [loadProducts])
     return (
         <div className="products__wrapper">
@@ -31,7 +31,7 @@ const Product = ({ loadProducts }) => {
                 >
                     <div className="cards__wrapper">
                         {Array.isArray(data) ? 
-                            data.map((product) => {
+                            data.slice(41, 70).map((product) => {
                                 return (
                                     <SwiperSlide className="card-slide" key={product.id}>
                                             <Card
