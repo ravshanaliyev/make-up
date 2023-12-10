@@ -53,7 +53,7 @@ const Card = ({ id, image, title, description, desc, price, product }) => {
             <p title={desc} className="card__text">
                 {truncate(description, 40)}
             </p>
-            <p className="card__price">{t("price.currency") === "$" ? `$${price}` : `${price * 12322} som`}</p>
+            <p className="card__price">{t("price.currency") === "$" ? `$${price}` : `${(price * 12322).toFixed(2)} som`}</p>
 
             <div className="btns">
                 {cart_products.findIndex((cardproduct) => cardproduct.id === id) !==

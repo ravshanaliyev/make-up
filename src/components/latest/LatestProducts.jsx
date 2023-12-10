@@ -31,7 +31,7 @@ const LatestProducts = ({ loadProducts }) => {
                 >
                     <div className="cards__wrapper">
                         {Array.isArray(data) ?
-                            data.slice(41, 70).map((product) => {
+                            data.slice(12, 30).map((product) => {
                                 return (
                                     <SwiperSlide className="card-slide" key={product.id}>
                                         <Card
