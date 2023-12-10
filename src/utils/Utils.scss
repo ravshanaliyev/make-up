@@ -6,56 +6,6 @@
     // padding: 0 calc((100% - 1400px)/2);
 }
 
-@keyframes spinner {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-.loading-spinner {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    .wrap {
-        display: inline-block;
-
-        .fa,
-        .glyphicon {
-            animation-name: spinner;
-            animation-duration: 1.5s;
-            animation-iteration-count: infinite;
-            animation-timing-function: linear;
-            font-size: 6em;
-            position: relative;
-
-            &:first-of-type {
-                left: 10px;
-                bottom: 5px;
-                color: #2980b9;
-            }
-
-            &:last-of-type {
-                font-size: 3em;
-                top: 10px;
-                right: 5px;
-                color: #e74c3c;
-                animation-direction: reverse;
-            }
-        }
-
-        .glyphicon {
-            &:last-of-type {
-                right: 8px;
-            }
-        }
-    }
-}
 .card {
     width: 300px;
     border-radius: 5px;
@@ -76,13 +26,11 @@
     }
     .card__title {
                 color: #000;
-        font-family: var(--dmsans);
         font-size: 18px;
         font-weight: 400;
     }
     .card__price {
         color: #444;
-        font-family: var(--dmsans);
         font-weight: 600;
         margin-bottom: 10px;
     }
@@ -123,8 +71,9 @@
   }
 }
 .button{  
-    font-size: 16px;
-    padding: 15px 30px;
+    width: 100%;
+    font-size: 14px;
+    padding: 15px ;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -147,7 +96,7 @@
 }
 .btn{
     font-size: 14px;
-    padding: 10px 20px;
+    padding: 15px 15px;
     display: flex;
     align-items: center;
     justify-content: center;

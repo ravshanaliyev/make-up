@@ -47,9 +47,9 @@
     gap: 10px;
 }
 .heart-btn {
-    font-size: 28px;
+    font-size: 25px;
     cursor: pointer;
-    padding: 10px 20px;
+    padding: 8px 20px;
     background-color: transparent;
     border: 1px solid #937ab6;
     color: #937ab6;
@@ -77,8 +77,8 @@
     }
     .color-type-result{
         margin: 20px auto 0 auto;
-        width: 250px;
-        height: 100px;
+        width: 100%;
+        height: 130px;
         cursor: pointer;
         transition: 0.2s;
         &:hover {

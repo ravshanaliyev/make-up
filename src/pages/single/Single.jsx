@@ -10,6 +10,7 @@ import {
   DECREMENT_COUNT,
   LIKE_PRODUCT,
   DISLIKE_PRODUCT,
+  REMOVE_FROM_CART,
 } from "../../redux/actions/action-types";
 
 import './Single.scss'
@@ -30,14 +31,9 @@ const Single = ({loadProducts}) => {
     dispatch({ type: ADD_TO_CART, product });
   };
 
-  const handleIncrementProductCount = (product) => {
+  const handleRemoveProduct = (product) => {
     console.log(product);
-    dispatch({ type: INCREMENT_COUNT, product });
-  };
-
-  const handleDecrementProductCount = (product) => {
-    console.log(product);
-    dispatch({ type: DECREMENT_COUNT, product });
+    dispatch({ type: REMOVE_FROM_CART, product });
   };
 
   function handleLikeProduct(product) {
@@ -72,19 +68,10 @@ const Single = ({loadProducts}) => {
                 -1 ? (
                 <div className="button_wrapper">
                   <button
-                    className="btn"
-                    onClick={() => handleDecrementProductCount(data)}
+                    className="button"
+                    onClick={() => handleRemoveProduct(data)}
                   >
-                    -
-                  </button>
-                  <strong>
-                    {cart_products.find((cartproduct) => cartproduct.id === id).count}
-                  </strong>
-                  <button
-                    className="btn"
-                    onClick={() => handleIncrementProductCount(data)}
-                  >
-                    +
+                    REMOVE FROM CART
                   </button>
                 </div>
               ) : (

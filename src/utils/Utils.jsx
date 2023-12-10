@@ -3,10 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { truncate } from "../helpers/modifiers/modifiers";
 import {
     ADD_TO_CART,
-    INCREMENT_COUNT,
     DECREMENT_COUNT,
     LIKE_PRODUCT,
     DISLIKE_PRODUCT,
+    REMOVE_FROM_CART,
 } from "../redux/actions/action-types";
 
 import "./Utils.scss";
@@ -30,14 +30,9 @@ const Card = ({ id, image, title, description, desc, price, product }) => {
         dispatch({ type: ADD_TO_CART, product });
     };
 
-    const handleIncrementProductCount = (product) => {
-        dispatch({ type: INCREMENT_COUNT, product });
+    const handleRemoveProduct = (product) => {
+        dispatch({ type: REMOVE_FROM_CART, product });
     };
-
-    const handleDecrementProductCount = (product) => {
-        dispatch({ type: DECREMENT_COUNT, product });
-    };
-
     function handleLikeProduct(product) {
         dispatch({ type: LIKE_PRODUCT, product });
     }
@@ -65,20 +60,8 @@ const Card = ({ id, image, title, description, desc, price, product }) => {
                     -1 ? (
                     <div className="button_wrapper">
                         <button
-                            className="btn"
-                            onClick={() => handleDecrementProductCount(product)}
-                        >
-                            -
-                        </button>
-                        <strong>
-                            {cart_products.find((cartproduct) => cartproduct.id === id).count}
-                        </strong>
-                        <button
-                            className="btn"
-                            onClick={() => handleIncrementProductCount(product)}
-                        >
-                            +
-                        </button>
+                            className="button" onClick={() => handleRemoveProduct(product)}
+                        >REMOVE FROM CART</button>
                     </div>
                 ) : (
                     <button onClick={() => handleAddToCart(product)} className="btn">
