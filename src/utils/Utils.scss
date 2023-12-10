@@ -115,6 +115,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 20px;
   strong{
     max-width: 50px;
     width: 100%;
@@ -137,6 +138,12 @@
         background-color: #fff;
         color: #222;
     }
+}
+.btns{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
 }
 .btn{
     font-size: 14px;

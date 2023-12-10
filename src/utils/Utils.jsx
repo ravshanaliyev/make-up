@@ -15,24 +15,6 @@ import { useTranslation } from "react-i18next";
 
 
 
-const Loading = ({ type }) => {
-    
-    return (
-        <>
-            {
-                type === "small" ?
-                    <span className="loader"></span>
-                    :
-                    <div className="loading-spinner">
-                        <div className="wrap">
-                            <span className="glyphicon glyphicon-cog"></span>
-                            <span className="glyphicon glyphicon-cog"></span>
-                        </div>
-                    </div>
-            }
-        </>
-    );
-};
 
 const Container = ({ children }) => {
     return <div className="container">{children}</div>;
@@ -66,20 +48,7 @@ const Card = ({ id, image, title, description, desc, price, product }) => {
 
     return (
         <div className="card">
-            <ul className="card__top-icons">
-                {like_products.findIndex((likeproduct) => likeproduct.id === id) !==
-                    -1 ? (
-                    <AiFillHeart
-                        className="icon__heart--fill"
-                        onClick={() => handleDislikeProduct(product)}
-                    />
-                ) : (
-                    <AiOutlineHeart
-                        className="icon__heart"
-                        onClick={() => handleLikeProduct(product)}
-                    />
-                )}
-            </ul>
+            
             <Link to={`/product/${id}`}>
                 <div className="card__image-wrapper">
                     <img src={image ? image : "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/310px-Placeholder_view_vector.svg.png"} alt="" />
@@ -91,39 +60,55 @@ const Card = ({ id, image, title, description, desc, price, product }) => {
             </p>
             <p className="card__price">{t("price.currency") === "$" ? `$${price}` : `${price * 12322} som`}</p>
 
-            {cart_products.findIndex((cardproduct) => cardproduct.id === id) !==
-                -1 ? (
-                <div className="button_wrapper">
-                    <button
-                        className="btn"
-                        onClick={() => handleDecrementProductCount(product)}
-                    >
-                        -
+            <div className="btns">
+                {cart_products.findIndex((cardproduct) => cardproduct.id === id) !==
+                    -1 ? (
+                    <div className="button_wrapper">
+                        <button
+                            className="btn"
+                            onClick={() => handleDecrementProductCount(product)}
+                        >
+                            -
+                        </button>
+                        <strong>
+                            {cart_products.find((cartproduct) => cartproduct.id === id).count}
+                        </strong>
+                        <button
+                            className="btn"
+                            onClick={() => handleIncrementProductCount(product)}
+                        >
+                            +
+                        </button>
+                    </div>
+                ) : (
+                    <button onClick={() => handleAddToCart(product)} className="btn">
+                        ADD TO CART
                     </button>
-                    <strong>
-                        {cart_products.find((cartproduct) => cartproduct.id === id).count}
-                    </strong>
-                    <button
-                        className="btn"
-                        onClick={() => handleIncrementProductCount(product)}
-                    >
-                        +
-                    </button>
-                </div>
-            ) : (
-                <button onClick={() => handleAddToCart(product)} className="btn">
-                    ADD TO CART
-                </button>
-            )}
+                )}
+                <ul className="card__top-icons">
+                    {like_products.findIndex((likeproduct) => likeproduct.id === id) !==
+                        -1 ? (
+                        <AiFillHeart
+                            className="icon__heart--fill"
+                            onClick={() => handleDislikeProduct(product)}
+                        />
+                    ) : (
+                        <AiOutlineHeart
+                            className="icon__heart"
+                            onClick={() => handleLikeProduct(product)}
+                        />
+                    )}
+                </ul>
+            </div>
         </div>
     );
 };
-const Button = ({ loading, text, action, disabled, icon, click, type }) => {
+const Button = ({ text, action, disabled, icon, click, type }) => {
     return (
         <button data-action={action}  disabled={disabled} type={type ? type : "button"} onClick={click} className={"button"}>
-            {!loading ? <>{icon} {text}</> : <Loading type="small" />}
+            {<>{icon} {text}</>}
         </button>
     );
 };
 
-export  {Card, Container, Button, Loading};
+export  {Card, Container, Button};
