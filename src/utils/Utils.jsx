@@ -1,6 +1,6 @@
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
-import { formatmoney, truncate } from "../helpers/modifiers/modifiers";
+import { truncate } from "../helpers/modifiers/modifiers";
 import {
     ADD_TO_CART,
     INCREMENT_COUNT,
@@ -125,6 +125,5 @@ const Button = ({ loading, text, action, disabled, icon, click, type }) => {
         </button>
     );
 };
-
 
 export  {Card, Container, Button, Loading};
